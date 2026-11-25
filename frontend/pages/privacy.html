@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Manage your CompanionAI privacy controls."
+    >
+
+    <title>Privacy — CompanionAI</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+</head>
+
+
+<body data-auth-required="true">
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <!-- Brand -->
+        <a
+            href="home.html"
+            class="brand"
+            aria-label="CompanionAI Home"
+        >
+
+            <span
+                class="brand-icon"
+                aria-hidden="true"
+            >
+                ✦
+            </span>
+
+            <span>
+                CompanionAI
+            </span>
+
+        </a>
+
+
+        <!-- Navigation -->
+        <nav
+            class="nav"
+            aria-label="Main navigation"
+        >
+
+            <a href="home.html">
+                Home
+            </a>
+
+            <a href="chat.html">
+                Chat
+            </a>
+
+            <a href="memory.html">
+                Memory
+            </a>
+
+            <a
+                href="privacy.html"
+                class="active"
+                aria-current="page"
+            >
+                Privacy
+            </a>
+
+            <a href="safety.html">
+                Safety
+            </a>
+
+            <a href="settings.html">
+                Settings
+            </a>
+
+
+            <button
+                id="themeToggle"
+                class="icon-button"
+                type="button"
+                aria-label="Toggle theme"
+                title="Toggle theme"
+            >
+                ◐
+            </button>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main class="page-container">
+
+
+    <!-- =====================================================
+         PAGE INTRO
+         ===================================================== -->
+
+    <section class="page-title">
+
+        <span class="eyebrow">
+            PRIVACY
+        </span>
+
+        <h1>
+            Your data. Your choices.
+        </h1>
+
+        <p>
+            CompanionAI is designed so important privacy
+            decisions remain visible, understandable,
+            and under your control.
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PRIVACY STATUS
+         ===================================================== -->
+
+    <section class="privacy-status-card">
+
+        <div
+            class="privacy-status-icon"
+            aria-hidden="true"
+        >
+            🔒
+        </div>
+
+
+        <div class="privacy-status-content">
+
+            <span class="eyebrow">
+                CURRENT PRIVACY STATUS
+            </span>
+
+            <h2>
+                Privacy mode is active
+            </h2>
+
+            <p>
+                Optional sensors and external AI remain
+                disabled until you choose to enable them.
+            </p>
+
+        </div>
+
+
+        <div class="privacy-status-badge">
+
+            <span class="control-status">
+                Protected
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PRIVACY CONTROLS
+         ===================================================== -->
+
+    <section class="panel privacy-controls-panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <span class="eyebrow">
+                    CONTROLS
+                </span>
+
+                <h2>
+                    Privacy controls
+                </h2>
+
+                <p>
+                    Enable or disable optional CompanionAI
+                    features whenever you want.
+                </p>
+
+            </div>
+
+
+            <div
+                class="lock-icon"
+                aria-hidden="true"
+            >
+                ◌
+            </div>
+
+        </div>
+
+
+
+        <div class="settings-list">
+
+
+            <!-- =================================================
+                 PRIVACY MODE
+                 ================================================= -->
+
+            <div class="setting-row">
+
+                <div class="setting-row-icon">
+                    🔒
+                </div>
+
+
+                <div class="setting-info">
+
+                    <strong>
+                        Privacy mode
+                    </strong>
+
+                    <span>
+                        Keep optional data processing minimized
+                        and require explicit permission for
+                        additional features.
+                    </span>
+
+                </div>
+
+
+                <label
+                    class="toggle"
+                    aria-label="Privacy mode"
+                >
+
+                    <input
+                        id="privacyToggle"
+                        type="checkbox"
+                        checked
+                    >
+
+                    <span
+                        class="toggle-slider"
+                        aria-hidden="true"
+                    ></span>
+
+                </label>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CAMERA / MICROPHONE
+                 ================================================= -->
+
+            <div class="setting-row">
+
+                <div class="setting-row-icon">
+                    ◉
+                </div>
+
+
+                <div class="setting-info">
+
+                    <strong>
+                        Camera & microphone
+                    </strong>
+
+                    <span>
+                        Allow optional sensor-based emotion
+                        analysis. Browser permission is required.
+                    </span>
+
+                </div>
+
+
+                <label
+                    class="toggle"
+                    aria-label="Camera and microphone access"
+                >
+
+                    <input
+                        id="sensorToggle"
+                        type="checkbox"
+                    >
+
+                    <span
+                        class="toggle-slider"
+                        aria-hidden="true"
+                    ></span>
+
+                </label>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 EXTERNAL AI
+                 ================================================= -->
+
+            <div class="setting-row">
+
+                <div class="setting-row-icon">
+                    ✦
+                </div>
+
+
+                <div class="setting-info">
+
+                    <strong>
+                        External AI
+                    </strong>
+
+                    <span>
+                        Allow approved external AI services
+                        when explicitly enabled.
+                    </span>
+
+                </div>
+
+
+                <label
+                    class="toggle"
+                    aria-label="External AI access"
+                >
+
+                    <input
+                        id="externalAIToggle"
+                        type="checkbox"
+                    >
+
+                    <span
+                        class="toggle-slider"
+                        aria-hidden="true"
+                    ></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Control explanation -->
+
+        <div class="privacy-control-note">
+
+            <span
+                class="privacy-control-note-icon"
+                aria-hidden="true"
+            >
+                ⓘ
+            </span>
+
+            <p>
+                Turning on an optional feature does not
+                automatically mean all information is shared.
+                CompanionAI should only process the information
+                required for that feature.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         WHAT YOUR SETTINGS CONTROL
+         ===================================================== -->
+
+    <section class="privacy-grid">
+
+
+        <article class="privacy-card">
+
+            <div
+                class="privacy-card-icon"
+                aria-hidden="true"
+            >
+                ◇
+            </div>
+
+            <div class="privacy-card-content">
+
+                <span class="eyebrow">
+                    MEMORY
+                </span>
+
+                <h3>
+                    Memory control
+                </h3>
+
+                <p>
+                    You choose what information CompanionAI
+                    is allowed to remember. Saved memories can
+                    be reviewed or removed.
+                </p>
+
+                <a
+                    href="memory.html"
+                    class="privacy-card-link"
+                >
+                    Manage memory
+                    <span aria-hidden="true">→</span>
+                </a>
+
+            </div>
+
+        </article>
+
+
+
+        <article class="privacy-card">
+
+            <div
+                class="privacy-card-icon"
+                aria-hidden="true"
+            >
+                ◌
+            </div>
+
+            <div class="privacy-card-content">
+
+                <span class="eyebrow">
+                    LOCAL-FIRST
+                </span>
+
+                <h3>
+                    Minimize data sharing
+                </h3>
+
+                <p>
+                    Features can be designed to process
+                    information locally whenever practical,
+                    reducing unnecessary transmission.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <article class="privacy-card">
+
+            <div
+                class="privacy-card-icon"
+                aria-hidden="true"
+            >
+                ✦
+            </div>
+
+            <div class="privacy-card-content">
+
+                <span class="eyebrow">
+                    PERMISSIONS
+                </span>
+
+                <h3>
+                    Explicit permissions
+                </h3>
+
+                <p>
+                    Camera and microphone access requires
+                    browser permission. You can deny access
+                    when the browser asks.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <article class="privacy-card">
+
+            <div
+                class="privacy-card-icon"
+                aria-hidden="true"
+            >
+                ♡
+            </div>
+
+            <div class="privacy-card-content">
+
+                <span class="eyebrow">
+                    TRANSPARENCY
+                </span>
+
+                <h3>
+                    Clear communication
+                </h3>
+
+                <p>
+                    CompanionAI should clearly communicate
+                    when optional sensors, processing, or
+                    external services are active.
+                </p>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         DATA PRINCIPLES
+         ===================================================== -->
+
+    <section class="panel privacy-principles-panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <span class="eyebrow">
+                    DATA PRINCIPLES
+                </span>
+
+                <h2>
+                    How CompanionAI should handle your data
+                </h2>
+
+                <p>
+                    Privacy is not just a setting. It should
+                    be part of how the system is designed.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="privacy-principles-grid">
+
+
+            <div class="privacy-principle">
+
+                <span
+                    class="privacy-principle-number"
+                    aria-hidden="true"
+                >
+                    01
+                </span>
+
+                <div>
+
+                    <strong>
+                        Collect less
+                    </strong>
+
+                    <p>
+                        Only collect information needed for
+                        a feature to work.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="privacy-principle">
+
+                <span
+                    class="privacy-principle-number"
+                    aria-hidden="true"
+                >
+                    02
+                </span>
+
+                <div>
+
+                    <strong>
+                        Ask first
+                    </strong>
+
+                    <p>
+                        Optional sensors and external services
+                        should require explicit permission.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="privacy-principle">
+
+                <span
+                    class="privacy-principle-number"
+                    aria-hidden="true"
+                >
+                    03
+                </span>
+
+                <div>
+
+                    <strong>
+                        Explain clearly
+                    </strong>
+
+                    <p>
+                        The interface should tell you what
+                        a feature is doing and why.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="privacy-principle">
+
+                <span
+                    class="privacy-principle-number"
+                    aria-hidden="true"
+                >
+                    04
+                </span>
+
+                <div>
+
+                    <strong>
+                        Give control
+                    </strong>
+
+                    <p>
+                        You should be able to disable optional
+                        features and manage saved information.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PRIVACY REMINDER
+         ===================================================== -->
+
+    <section class="privacy-reminder">
+
+        <div
+            class="privacy-reminder-icon"
+            aria-hidden="true"
+        >
+            🔐
+        </div>
+
+
+        <div>
+
+            <strong>
+                A simple rule for sensitive information
+            </strong>
+
+            <p>
+                Avoid storing passwords, financial information,
+                authentication codes, or other highly sensitive
+                information in CompanionAI memory.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="footer">
+
+    <div class="footer-inner">
+
+        <div class="footer-brand">
+            ✦ CompanionAI
+        </div>
+
+
+        <p>
+            A student project focused on private,
+            supportive technology.
+        </p>
+
+
+        <p class="footer-disclaimer">
+            CompanionAI provides supportive conversation,
+            not medical or clinical advice.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     SCRIPTS
+     ========================================================= -->
+
+<script src="../js/app.js"></script>
+<script src="../js/privacy.js"></script>
+
+</body>
+
+</html>

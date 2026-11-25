@@ -1,0 +1,2007 @@
+/* =========================================================
+   CompanionAI
+   Global Design System
+   File: css/style.css
+   ========================================================= */
+
+/* =========================================================
+   1. DESIGN TOKENS
+   ========================================================= */
+
+:root {
+    --bg: #f6f7fb;
+    --surface: #ffffff;
+    --surface-soft: #f8f9fc;
+    --surface-hover: #f0f2f8;
+    --surface-active: #e9eaff;
+
+    --text: #171923;
+    --text-secondary: #596174;
+    --muted: #858c9c;
+
+    --accent: #635bff;
+    --accent-dark: #5148e8;
+    --accent-soft: #eeedff;
+
+    --border: #e4e7ef;
+
+    --success: #159957;
+    --success-soft: rgba(21, 153, 87, 0.10);
+
+    --warning: #c78300;
+    --warning-soft: rgba(199, 131, 0, 0.10);
+
+    --danger: #dc3545;
+    --danger-soft: rgba(220, 53, 69, 0.10);
+
+    --shadow-xs: 0 2px 8px rgba(20, 24, 40, 0.04);
+    --shadow-sm: 0 4px 14px rgba(20, 24, 40, 0.05);
+    --shadow-md: 0 16px 45px rgba(20, 24, 40, 0.08);
+    --shadow-lg: 0 24px 70px rgba(20, 24, 40, 0.12);
+
+    --radius-xs: 8px;
+    --radius-sm: 12px;
+    --radius-md: 18px;
+    --radius-lg: 26px;
+    --radius-xl: 34px;
+
+    --max-width: 1120px;
+    --content-width: 1000px;
+    --narrow-width: 760px;
+
+    --font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    --transition-fast: 150ms ease;
+    --transition-normal: 200ms ease;
+    --transition-slow: 300ms ease;
+}
+
+
+/* =========================================================
+   2. DARK MODE
+   ========================================================= */
+
+body.dark {
+    --bg: #090d14;
+    --surface: #111722;
+    --surface-soft: #151c28;
+    --surface-hover: #1b2330;
+    --surface-active: #242b43;
+
+    --text: #f2f4f8;
+    --text-secondary: #b5bdcc;
+    --muted: #828b9d;
+
+    --accent: #817aff;
+    --accent-dark: #918bff;
+    --accent-soft: rgba(129, 122, 255, 0.13);
+
+    --border: #252d3a;
+
+    --success: #35c985;
+    --success-soft: rgba(53, 201, 133, 0.12);
+
+    --warning: #e4ad42;
+    --warning-soft: rgba(228, 173, 66, 0.12);
+
+    --danger: #ff6474;
+    --danger-soft: rgba(255, 100, 116, 0.12);
+
+    --shadow-xs: 0 2px 8px rgba(0, 0, 0, 0.12);
+    --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.18);
+    --shadow-md: 0 18px 50px rgba(0, 0, 0, 0.30);
+    --shadow-lg: 0 24px 70px rgba(0, 0, 0, 0.40);
+}
+
+
+/* =========================================================
+   3. RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(99, 91, 255, 0.08),
+            transparent 30%
+        ),
+        var(--bg);
+
+    color: var(--text);
+    font-family: var(--font-family);
+    line-height: 1.5;
+
+    transition:
+        background var(--transition-normal),
+        color var(--transition-normal);
+}
+
+body.dark {
+    color-scheme: dark;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+::selection {
+    background: var(--accent);
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   4. ACCESSIBILITY
+   ========================================================= */
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+a:focus-visible {
+    outline: 3px solid rgba(99, 91, 255, 0.25);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   5. HEADER
+   ========================================================= */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    border-bottom: 1px solid var(--border);
+
+    background: rgba(246, 247, 251, 0.82);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+body.dark .header {
+    background: rgba(9, 13, 20, 0.84);
+}
+
+.header-inner {
+    width: min(var(--max-width), calc(100% - 40px));
+    min-height: 68px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   6. BRAND
+   ========================================================= */
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 17px;
+    font-weight: 750;
+    letter-spacing: -0.02em;
+
+    white-space: nowrap;
+}
+
+.brand-icon {
+    color: var(--accent);
+    font-size: 19px;
+}
+
+
+/* =========================================================
+   7. NAVIGATION
+   ========================================================= */
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav a {
+    padding: 8px 12px;
+
+    border-radius: 10px;
+
+    color: var(--text-secondary);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        background var(--transition-fast),
+        color var(--transition-fast);
+}
+
+.nav a:hover {
+    background: var(--surface-hover);
+    color: var(--text);
+}
+
+.nav a.active {
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+
+/* =========================================================
+   8. ICON BUTTON
+   ========================================================= */
+
+.icon-button {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--border);
+    border-radius: 50%;
+
+    background: var(--surface);
+    color: var(--text);
+
+    cursor: pointer;
+
+    transition:
+        transform var(--transition-fast),
+        background var(--transition-fast);
+}
+
+.icon-button:hover {
+    background: var(--surface-hover);
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   9. CONTAINERS
+   ========================================================= */
+
+.container {
+    width: min(var(--content-width), calc(100% - 40px));
+    margin: auto;
+
+    padding: 70px 0 80px;
+}
+
+.page-container {
+    width: min(var(--content-width), calc(100% - 40px));
+    margin: auto;
+
+    padding: 55px 0 80px;
+}
+
+.narrow-container {
+    width: min(var(--narrow-width), calc(100% - 40px));
+    margin: auto;
+
+    padding: 55px 0 80px;
+}
+
+
+/* =========================================================
+   10. HERO
+   ========================================================= */
+
+.hero {
+    max-width: 760px;
+    margin: auto;
+
+    text-align: center;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 7px 13px;
+
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    background: var(--surface);
+    color: var(--text-secondary);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--success);
+
+    box-shadow: 0 0 0 4px var(--success-soft);
+}
+
+.hero h1 {
+    margin: 25px 0 0;
+
+    font-size: clamp(42px, 6vw, 70px);
+    line-height: 1.02;
+
+    letter-spacing: -0.055em;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--accent);
+}
+
+.hero > p {
+    max-width: 650px;
+
+    margin: 22px auto 0;
+
+    color: var(--text-secondary);
+
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   11. PAGE TITLE
+   ========================================================= */
+
+.page-title {
+    max-width: 760px;
+    margin-bottom: 35px;
+}
+
+.page-title .eyebrow {
+    margin-bottom: 8px;
+}
+
+.page-title h1 {
+    margin: 0;
+
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.08;
+
+    letter-spacing: -0.04em;
+}
+
+.page-title p {
+    max-width: 680px;
+
+    margin: 12px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   12. EYEBROW
+   ========================================================= */
+
+.eyebrow {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--accent);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 0.1em;
+}
+
+
+/* =========================================================
+   13. CARD
+   ========================================================= */
+
+.card {
+    padding: 24px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* =========================================================
+   14. STATUS CARD
+   ========================================================= */
+
+.status-card {
+    max-width: 850px;
+
+    margin: 55px auto 0;
+
+    padding: 22px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.status-header {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+}
+
+.status-icon {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 13px;
+
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+.status-header h2 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.status-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 22px;
+}
+
+.status-item {
+    display: flex;
+    gap: 10px;
+
+    padding: 13px;
+
+    border-radius: 14px;
+
+    background: var(--surface-soft);
+}
+
+.status-item > span {
+    flex: 0 0 auto;
+
+    width: 8px;
+    height: 8px;
+
+    margin-top: 6px;
+
+    border-radius: 50%;
+
+    background: var(--success);
+}
+
+.status-item > span.muted {
+    background: var(--muted);
+    opacity: 0.5;
+}
+
+.status-item strong {
+    display: block;
+    font-size: 13px;
+}
+
+.status-item p {
+    margin: 3px 0 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   15. SECTION HEADINGS
+   ========================================================= */
+
+.section-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.section-heading h2 {
+    margin: 0;
+
+    font-size: 22px;
+    letter-spacing: -0.025em;
+}
+
+
+/* =========================================================
+   16. QUICK SUPPORT
+   ========================================================= */
+
+.quick-section {
+    max-width: 850px;
+
+    margin: 65px auto 0;
+}
+
+.quick-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+
+    margin-top: 18px;
+}
+
+.quick-card {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    width: 100%;
+
+    padding: 18px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    background: var(--surface);
+    color: var(--text);
+
+    text-align: left;
+
+    cursor: pointer;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform var(--transition-fast),
+        border-color var(--transition-fast),
+        background var(--transition-fast);
+}
+
+.quick-card:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(99, 91, 255, 0.35);
+
+    background: var(--surface-hover);
+}
+
+.quick-icon {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 auto;
+
+    border-radius: 13px;
+
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+.quick-content {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+
+    flex: 1;
+}
+
+.quick-content strong {
+    font-size: 14px;
+}
+
+.quick-content small {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.arrow {
+    color: var(--muted);
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   17. CHAT
+   ========================================================= */
+
+.chat-section {
+    margin-top: 35px;
+}
+
+.chat-card {
+    min-height: 650px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow-md);
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 18px 20px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.chat-title {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 13px;
+
+    background: var(--accent);
+
+    color: white;
+
+    box-shadow: 0 6px 18px rgba(99, 91, 255, 0.25);
+}
+
+.chat-title h2 {
+    margin: 0;
+    font-size: 15px;
+}
+
+.online-status {
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    margin-top: 2px;
+
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.online-status span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--success);
+}
+
+.privacy-badge {
+    padding: 7px 10px;
+
+    border-radius: 999px;
+
+    background: var(--surface-soft);
+
+    color: var(--muted);
+
+    font-size: 11px;
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   18. CHAT MESSAGES
+   ========================================================= */
+
+.chat-messages {
+    flex: 1;
+    min-height: 0;
+
+    overflow-y: auto;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--surface-soft),
+            var(--surface)
+        );
+}
+
+.welcome-message {
+    max-width: 390px;
+
+    margin: 110px auto;
+
+    text-align: center;
+}
+
+.welcome-icon {
+    width: 54px;
+    height: 54px;
+
+    display: grid;
+    place-items: center;
+
+    margin: auto;
+
+    border-radius: 17px;
+
+    background: var(--accent-soft);
+    color: var(--accent);
+
+    font-size: 20px;
+}
+
+.welcome-message h3 {
+    margin: 18px 0 7px;
+    font-size: 19px;
+}
+
+.welcome-message p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   19. CHAT BUBBLES
+   ========================================================= */
+
+.message {
+    display: flex;
+    margin-bottom: 14px;
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.message.ai {
+    justify-content: flex-start;
+}
+
+.message-bubble {
+    max-width: 75%;
+
+    padding: 12px 15px;
+
+    border-radius: 17px;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    overflow-wrap: anywhere;
+}
+
+.message.user .message-bubble {
+    background: var(--accent);
+    color: white;
+
+    border-bottom-right-radius: 5px;
+}
+
+.message.ai .message-bubble {
+    background: var(--surface-hover);
+    color: var(--text);
+
+    border-bottom-left-radius: 5px;
+}
+
+
+/* =========================================================
+   20. CHAT INPUT
+   ========================================================= */
+
+.chat-input-area {
+    display: flex;
+
+    gap: 10px;
+
+    padding: 15px;
+
+    border-top: 1px solid var(--border);
+
+    background: var(--surface);
+}
+
+.input-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.input-wrapper input {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 65px 0 16px;
+
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    outline: none;
+
+    background: var(--surface-soft);
+    color: var(--text);
+
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.input-wrapper input:focus {
+    border-color: var(--accent);
+
+    box-shadow:
+        0 0 0 3px rgba(99, 91, 255, 0.1);
+}
+
+.input-wrapper input::placeholder {
+    color: var(--muted);
+}
+
+.character-count {
+    position: absolute;
+
+    right: 15px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: var(--muted);
+    font-size: 10px;
+
+    pointer-events: none;
+}
+
+.send-button {
+    width: 48px;
+    height: 48px;
+
+    flex: 0 0 auto;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: var(--accent);
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    transition:
+        background var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.send-button:hover {
+    background: var(--accent-dark);
+    transform: translateY(-1px);
+}
+
+.send-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* =========================================================
+   21. INSIGHT CARD
+   ========================================================= */
+
+.insight-card {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 15px;
+
+    margin-top: 18px;
+
+    padding: 20px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.insight-icon {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 auto;
+
+    border-radius: 13px;
+
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+.insight-card h3 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.insight-card p {
+    margin: 4px 0 0;
+
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   22. GENERAL PANELS
+   ========================================================= */
+
+.panel {
+    margin-top: 18px;
+
+    padding: 25px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.panel-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.panel-header h2 {
+    margin: 0;
+
+    font-size: 21px;
+    letter-spacing: -0.025em;
+}
+
+.panel-header p {
+    max-width: 650px;
+
+    margin: 7px 0 0;
+
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.lock-icon,
+.memory-icon {
+    width: 45px;
+    height: 45px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 14px;
+
+    background: var(--accent-soft);
+}
+
+
+/* =========================================================
+   23. CONTROL CARDS
+   ========================================================= */
+
+.control-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
+
+    margin-top: 22px;
+}
+
+.control-card {
+    padding: 17px;
+
+    border: 1px solid var(--border);
+    border-radius: 15px;
+
+    background: var(--surface-soft);
+
+    transition:
+        transform var(--transition-fast),
+        border-color var(--transition-fast);
+}
+
+.control-card:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(99, 91, 255, 0.25);
+}
+
+.control-card-icon {
+    margin-bottom: 13px;
+
+    font-size: 18px;
+    color: var(--accent);
+}
+
+.control-card h3 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.control-card p {
+    min-height: 58px;
+
+    margin: 7px 0 13px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+.control-status {
+    display: inline-flex;
+
+    padding: 4px 8px;
+
+    border-radius: 999px;
+
+    background: var(--success-soft);
+    color: var(--success);
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.control-status.inactive {
+    background: var(--surface-hover);
+    color: var(--muted);
+}
+
+.control-status.warning {
+    background: var(--warning-soft);
+    color: var(--warning);
+}
+
+.control-status.danger {
+    background: var(--danger-soft);
+    color: var(--danger);
+}
+
+
+/* =========================================================
+   24. FORMS
+   ========================================================= */
+
+.form-group {
+    display: grid;
+    gap: 7px;
+}
+
+.form-group label {
+    font-size: 12px;
+    font-weight: 650;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid var(--border);
+    border-radius: 13px;
+
+    outline: none;
+
+    resize: vertical;
+
+    background: var(--surface-soft);
+    color: var(--text);
+
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.form-group input {
+    height: 45px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--accent);
+
+    box-shadow:
+        0 0 0 3px rgba(99, 91, 255, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--muted);
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+.checkbox-row input {
+    width: 16px;
+    height: 16px;
+}
+
+
+/* =========================================================
+   25. BUTTONS
+   ========================================================= */
+
+.primary-button,
+.secondary-button,
+.danger-button {
+    width: fit-content;
+
+    cursor: pointer;
+
+    font-weight: 700;
+}
+
+.primary-button {
+    padding: 11px 17px;
+
+    border: 0;
+    border-radius: 12px;
+
+    background: var(--accent);
+    color: white;
+
+    font-size: 13px;
+
+    transition:
+        background var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.primary-button:hover {
+    background: var(--accent-dark);
+    transform: translateY(-1px);
+}
+
+.secondary-button {
+    padding: 10px 15px;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    background: var(--surface);
+    color: var(--text);
+
+    font-size: 13px;
+    font-weight: 650;
+
+    transition: background var(--transition-fast);
+}
+
+.secondary-button:hover {
+    background: var(--surface-hover);
+}
+
+.danger-button {
+    padding: 10px 15px;
+
+    border: 1px solid rgba(220, 53, 69, 0.25);
+    border-radius: 12px;
+
+    background: var(--danger-soft);
+    color: var(--danger);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   26. MEMORY
+   ========================================================= */
+
+.memory-form {
+    margin-top: 25px;
+
+    display: grid;
+    gap: 16px;
+}
+
+.memory-list {
+    display: grid;
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.memory-empty {
+    padding: 30px;
+
+    border: 1px dashed var(--border);
+    border-radius: 16px;
+
+    text-align: center;
+    color: var(--muted);
+}
+
+.memory-empty span {
+    font-size: 25px;
+    color: var(--accent);
+}
+
+.memory-empty p {
+    margin: 8px 0 2px;
+
+    color: var(--text);
+
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.memory-empty small {
+    font-size: 11px;
+}
+
+.memory-item {
+    position: relative;
+
+    padding: 17px;
+
+    border: 1px solid var(--border);
+    border-radius: 15px;
+
+    background: var(--surface-soft);
+}
+
+.memory-item h3 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.memory-item p {
+    margin: 6px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.memory-item-meta {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 10px;
+
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.memory-sensitive {
+    padding: 3px 7px;
+
+    border-radius: 999px;
+
+    background: var(--warning-soft);
+    color: var(--warning);
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   27. PROFILE
+   ========================================================= */
+
+.profile-header {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 22px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.profile-avatar {
+    width: 58px;
+    height: 58px;
+
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 auto;
+
+    border-radius: 18px;
+
+    background: var(--accent-soft);
+    color: var(--accent);
+
+    font-size: 20px;
+    font-weight: 750;
+}
+
+.profile-info h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.profile-info p {
+    margin: 4px 0 0;
+
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   28. SETTINGS
+   ========================================================= */
+
+.settings-list {
+    display: grid;
+    gap: 1px;
+
+    margin-top: 20px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    background: var(--border);
+}
+
+.setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 17px;
+
+    background: var(--surface);
+}
+
+.setting-info {
+    flex: 1;
+}
+
+.setting-info strong {
+    display: block;
+    font-size: 13px;
+}
+
+.setting-info span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--muted);
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   29. TOGGLE
+   ========================================================= */
+
+.toggle {
+    position: relative;
+
+    width: 44px;
+    height: 24px;
+
+    flex: 0 0 auto;
+}
+
+.toggle input {
+    width: 0;
+    height: 0;
+
+    opacity: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    inset: 0;
+
+    border-radius: 999px;
+
+    background: var(--border);
+
+    cursor: pointer;
+
+    transition: background var(--transition-fast);
+}
+
+.toggle-slider::before {
+    content: "";
+
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    left: 3px;
+    top: 3px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow: var(--shadow-xs);
+
+    transition: transform var(--transition-fast);
+}
+
+.toggle input:checked + .toggle-slider {
+    background: var(--accent);
+}
+
+.toggle input:checked + .toggle-slider::before {
+    transform: translateX(20px);
+}
+
+
+/* =========================================================
+   30. PRIVACY / SAFETY
+   ========================================================= */
+
+.privacy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+
+    margin-top: 20px;
+}
+
+.privacy-card {
+    padding: 20px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    background: var(--surface);
+}
+
+.privacy-card-icon {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 13px;
+
+    border-radius: 13px;
+
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+.privacy-card h3 {
+    margin: 0;
+    font-size: 15px;
+}
+
+.privacy-card p {
+    margin: 7px 0 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   31. SAFETY BANNER
+   ========================================================= */
+
+.safety-banner {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 14px;
+
+    padding: 17px;
+
+    border: 1px solid rgba(220, 53, 69, 0.20);
+    border-radius: var(--radius-md);
+
+    background: var(--danger-soft);
+}
+
+.safety-banner-icon {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 auto;
+
+    border-radius: 12px;
+
+    background: rgba(220, 53, 69, 0.12);
+    color: var(--danger);
+}
+
+.safety-banner h3 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.safety-banner p {
+    margin: 5px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   32. EMPTY STATE
+   ========================================================= */
+
+.empty-state {
+    padding: 45px 25px;
+
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-md);
+
+    text-align: center;
+}
+
+.empty-state-icon {
+    width: 50px;
+    height: 50px;
+
+    display: grid;
+    place-items: center;
+
+    margin: auto;
+
+    border-radius: 16px;
+
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+.empty-state h3 {
+    margin: 15px 0 5px;
+    font-size: 15px;
+}
+
+.empty-state p {
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   33. LOADING
+   ========================================================= */
+
+.loading {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.loading-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    animation: loadingPulse 1.2s infinite ease-in-out;
+}
+
+.loading-dot:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.loading-dot:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes loadingPulse {
+    0%,
+    80%,
+    100% {
+        opacity: 0.25;
+        transform: translateY(0);
+    }
+
+    40% {
+        opacity: 1;
+        transform: translateY(-3px);
+    }
+}
+
+
+/* =========================================================
+   34. DIVIDER
+   ========================================================= */
+
+.divider {
+    height: 1px;
+
+    margin: 25px 0;
+
+    background: var(--border);
+}
+
+
+/* =========================================================
+   35. BUTTON GROUP
+   ========================================================= */
+
+.button-group {
+    display: flex;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   36. GRID UTILITIES
+   ========================================================= */
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 16px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 16px;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 16px;
+}
+
+
+/* =========================================================
+   37. FOOTER
+   ========================================================= */
+
+.footer {
+    padding: 35px 20px 45px;
+
+    border-top: 1px solid var(--border);
+
+    background: var(--surface);
+}
+
+.footer-inner {
+    width: min(800px, 100%);
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.footer-brand {
+    color: var(--text);
+    font-weight: 700;
+}
+
+.footer p {
+    margin: 7px 0 0;
+
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.footer-disclaimer {
+    opacity: 0.8;
+}
+
+
+/* =========================================================
+   38. RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .header-inner {
+        width: min(100% - 30px, var(--max-width));
+    }
+
+    .status-items {
+        grid-template-columns: 1fr;
+    }
+
+    .control-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   39. RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .header-inner,
+    .container,
+    .page-container,
+    .narrow-container {
+        width: calc(100% - 24px);
+    }
+
+    .header-inner {
+        min-height: 60px;
+    }
+
+    .nav {
+        gap: 1px;
+    }
+
+    .nav a {
+        padding: 7px;
+        font-size: 12px;
+    }
+
+    .container {
+        padding-top: 50px;
+    }
+
+    .page-container,
+    .narrow-container {
+        padding-top: 40px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero > p {
+        font-size: 14px;
+    }
+
+    .quick-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .control-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .privacy-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    .panel {
+        padding: 18px;
+    }
+
+    .panel-header {
+        gap: 10px;
+    }
+
+    .lock-icon,
+    .memory-icon {
+        display: none;
+    }
+
+    .chat-card {
+        min-height: 570px;
+        border-radius: 20px;
+    }
+
+    .chat-messages {
+        padding: 18px;
+    }
+
+    .message-bubble {
+        max-width: 88%;
+    }
+
+    .chat-header {
+        padding: 15px;
+    }
+
+    .privacy-badge {
+        display: none;
+    }
+
+    .profile-header {
+        align-items: flex-start;
+    }
+}
+
+
+/* =========================================================
+   40. VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .nav a {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .chat-input-area {
+        padding: 10px;
+    }
+
+    .input-wrapper input {
+        padding-left: 13px;
+    }
+}
+
+
+/* =========================================================
+   41. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

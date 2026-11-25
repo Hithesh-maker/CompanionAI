@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Manage what CompanionAI remembers."
+    >
+
+    <title>Memory — CompanionAI</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+</head>
+
+
+<body data-auth-required="true">
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <!-- Brand -->
+        <a
+            href="home.html"
+            class="brand"
+            aria-label="CompanionAI Home"
+        >
+
+            <span
+                class="brand-icon"
+                aria-hidden="true"
+            >
+                ✦
+            </span>
+
+            <span>
+                CompanionAI
+            </span>
+
+        </a>
+
+
+        <!-- Navigation -->
+        <nav
+            class="nav"
+            aria-label="Main navigation"
+        >
+
+            <a href="home.html">
+                Home
+            </a>
+
+            <a href="chat.html">
+                Chat
+            </a>
+
+            <a
+                href="memory.html"
+                class="active"
+                aria-current="page"
+            >
+                Memory
+            </a>
+
+            <a href="privacy.html">
+                Privacy
+            </a>
+
+            <a href="safety.html">
+                Safety
+            </a>
+
+            <a href="settings.html">
+                Settings
+            </a>
+
+
+            <button
+                id="themeToggle"
+                class="icon-button"
+                type="button"
+                aria-label="Toggle theme"
+                title="Toggle theme"
+            >
+                ◐
+            </button>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main class="page-container">
+
+
+    <!-- =====================================================
+         PAGE INTRO
+         ===================================================== -->
+
+    <section class="page-title">
+
+        <span class="eyebrow">
+            YOUR MEMORY
+        </span>
+
+        <h1>
+            You decide what stays.
+        </h1>
+
+        <p>
+            Save useful preferences or context that can help
+            CompanionAI provide more personalized support.
+            Nothing should be remembered without your control.
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MEMORY CONTROL SUMMARY
+         ===================================================== -->
+
+    <section class="memory-control-banner">
+
+        <div
+            class="memory-control-icon"
+            aria-hidden="true"
+        >
+            🔒
+        </div>
+
+
+        <div class="memory-control-content">
+
+            <span class="eyebrow">
+                PRIVACY CONTROL
+            </span>
+
+            <h2>
+                Your memories belong to you.
+            </h2>
+
+            <p>
+                Review, manage, or remove saved memories
+                whenever you want.
+            </p>
+
+        </div>
+
+
+        <div class="memory-control-status">
+
+            <span class="control-status">
+                User controlled
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ADD MEMORY
+         ===================================================== -->
+
+    <section class="panel memory-add-panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <span class="eyebrow">
+                    CREATE
+                </span>
+
+                <h2>
+                    Add a memory
+                </h2>
+
+                <p>
+                    Save information you are comfortable
+                    having CompanionAI remember.
+                </p>
+
+            </div>
+
+
+            <div
+                class="memory-icon"
+                aria-hidden="true"
+            >
+                ◇
+            </div>
+
+        </div>
+
+
+
+        <form
+            id="memoryForm"
+            class="memory-form"
+            autocomplete="off"
+        >
+
+
+            <!-- Memory title -->
+
+            <div class="form-group">
+
+                <label for="memoryTitle">
+                    Title
+                </label>
+
+                <input
+                    id="memoryTitle"
+                    name="title"
+                    type="text"
+                    maxlength="100"
+                    placeholder="Example: Preferred coping activity"
+                    autocomplete="off"
+                    required
+                >
+
+                <small class="field-help">
+                    Give your memory a short, recognizable name.
+                </small>
+
+            </div>
+
+
+
+            <!-- Memory content -->
+
+            <div class="form-group">
+
+                <label for="memoryContent">
+                    Memory
+                </label>
+
+                <textarea
+                    id="memoryContent"
+                    name="content"
+                    rows="4"
+                    maxlength="1000"
+                    placeholder="Example: I prefer listening to music when I need to relax."
+                    required
+                ></textarea>
+
+                <small class="field-help">
+                    Add the information CompanionAI should remember.
+                </small>
+
+            </div>
+
+
+
+            <!-- Memory sensitivity -->
+
+            <label
+                class="checkbox-row memory-sensitive-option"
+                for="sensitiveMemory"
+            >
+
+                <input
+                    id="sensitiveMemory"
+                    name="sensitive"
+                    type="checkbox"
+                >
+
+                <span>
+
+                    <strong>
+                        Mark this as sensitive
+                    </strong>
+
+                    <small>
+                        Helps identify information that deserves
+                        extra care.
+                    </small>
+
+                </span>
+
+            </label>
+
+
+
+            <!-- Form actions -->
+
+            <div class="memory-form-actions">
+
+                <button
+                    id="saveMemory"
+                    class="primary-button"
+                    type="submit"
+                >
+                    Save memory
+                </button>
+
+            </div>
+
+
+            <!-- Form status -->
+
+            <div
+                id="memoryMessage"
+                class="form-message"
+                role="status"
+                aria-live="polite"
+            ></div>
+
+        </form>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MEMORY EXAMPLES
+         ===================================================== -->
+
+    <section class="memory-guidance">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="eyebrow">
+                    IDEAS
+                </span>
+
+                <h2>
+                    What can you remember?
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="memory-guidance-grid">
+
+
+            <div class="memory-guidance-card">
+
+                <div
+                    class="memory-guidance-icon"
+                    aria-hidden="true"
+                >
+                    ♫
+                </div>
+
+                <div>
+
+                    <strong>
+                        Preferences
+                    </strong>
+
+                    <p>
+                        Activities, music, hobbies, or
+                        ways you prefer to relax.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="memory-guidance-card">
+
+                <div
+                    class="memory-guidance-icon"
+                    aria-hidden="true"
+                >
+                    ◌
+                </div>
+
+                <div>
+
+                    <strong>
+                        Support preferences
+                    </strong>
+
+                    <p>
+                        How you prefer CompanionAI to
+                        communicate with you.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="memory-guidance-card">
+
+                <div
+                    class="memory-guidance-icon"
+                    aria-hidden="true"
+                >
+                    ✦
+                </div>
+
+                <div>
+
+                    <strong>
+                        Helpful context
+                    </strong>
+
+                    <p>
+                        General context that can make
+                        future conversations more useful.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SAVED MEMORIES
+         ===================================================== -->
+
+    <section class="panel saved-memory-panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <span class="eyebrow">
+                    YOUR DATA
+                </span>
+
+                <h2>
+                    Saved memories
+                </h2>
+
+                <p>
+                    Review what CompanionAI currently has stored.
+                    You can remove memories whenever you choose.
+                </p>
+
+            </div>
+
+
+            <div class="memory-count">
+
+                <span
+                    id="memoryCount"
+                    class="memory-count-number"
+                >
+                    0
+                </span>
+
+                <span class="memory-count-label">
+                    saved
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Saved memory list -->
+
+        <div
+            id="memoryList"
+            class="memory-list"
+            aria-live="polite"
+        >
+
+            <div class="memory-empty">
+
+                <div
+                    class="memory-empty-icon"
+                    aria-hidden="true"
+                >
+                    ♡
+                </div>
+
+                <p>
+                    Nothing saved yet.
+                </p>
+
+                <small>
+                    You decide what CompanionAI remembers.
+                </small>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MEMORY PRIVACY NOTE
+         ===================================================== -->
+
+    <section class="memory-privacy-note">
+
+        <div
+            class="memory-privacy-icon"
+            aria-hidden="true"
+        >
+            🔐
+        </div>
+
+
+        <div>
+
+            <strong>
+                Memory is optional.
+            </strong>
+
+            <p>
+                CompanionAI should only use information
+                you choose to save. Avoid storing passwords,
+                financial information, or other highly
+                sensitive personal information.
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="footer">
+
+    <div class="footer-inner">
+
+        <div class="footer-brand">
+            ✦ CompanionAI
+        </div>
+
+
+        <p>
+            A student project focused on private,
+            supportive technology.
+        </p>
+
+
+        <p class="footer-disclaimer">
+            CompanionAI provides supportive conversation,
+            not medical or clinical advice.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     SCRIPTS
+     ========================================================= -->
+
+<script src="../js/app.js"></script>
+<script src="../js/memory.js"></script>
+
+</body>
+
+</html>

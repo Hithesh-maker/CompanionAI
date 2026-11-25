@@ -1,0 +1,1613 @@
+```css
+/* =========================================================
+   CompanionAI
+   Page-Specific Styles
+   File: css/pages.css
+
+   Designed for:
+   - Home dashboard
+   - Chat
+   - Memory
+   - Privacy
+   - Safety
+   - Settings
+
+   Works with the shared variables from style.css
+   ========================================================= */
+
+
+/* =========================================================
+   1. GLOBAL PAGE CONTAINERS
+   ========================================================= */
+
+.container,
+.page-container,
+.dashboard-container {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+.page-container {
+    padding-top: 48px;
+    padding-bottom: 70px;
+}
+
+
+/* =========================================================
+   2. SHARED TYPOGRAPHY
+   ========================================================= */
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+
+    color: var(--accent);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+    line-height: 1;
+
+    text-transform: uppercase;
+}
+
+.page-title {
+    max-width: 760px;
+    margin-bottom: 38px;
+}
+
+.page-title h1 {
+    margin: 9px 0 0;
+
+    font-size: clamp(38px, 5vw, 58px);
+    line-height: 1.04;
+
+    letter-spacing: -0.045em;
+}
+
+.page-title p {
+    max-width: 650px;
+
+    margin: 16px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   3. HOME DASHBOARD
+   ========================================================= */
+
+.dashboard-container {
+    padding-top: 38px;
+    padding-bottom: 55px;
+}
+
+
+/* =========================================================
+   4. HOME HERO
+   ========================================================= */
+
+.dashboard-hero {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) 330px;
+
+    align-items: center;
+
+    gap: 45px;
+
+    padding: 32px 0 34px;
+}
+
+.hero-content {
+    min-width: 0;
+}
+
+.dashboard-hero h1 {
+    max-width: 760px;
+
+    margin: 12px 0 0;
+
+    font-size: clamp(42px, 5vw, 66px);
+
+    line-height: 0.98;
+
+    letter-spacing: -0.055em;
+}
+
+.dashboard-hero h1 span {
+    display: block;
+
+    margin-top: 7px;
+
+    color: var(--accent);
+}
+
+.hero-description {
+    max-width: 640px;
+
+    margin: 20px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   5. HERO ACTION
+   ========================================================= */
+
+.hero-action {
+    display: grid;
+
+    grid-template-columns: 46px minmax(0, 1fr) auto;
+
+    align-items: center;
+
+    gap: 14px;
+
+    min-height: 105px;
+
+    padding: 20px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    background: var(--surface);
+
+    color: inherit;
+
+    text-decoration: none;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform var(--transition-fast),
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast);
+}
+
+.hero-action:hover {
+    transform: translateY(-3px);
+
+    border-color: var(--accent);
+
+    box-shadow: var(--shadow-md);
+
+    background: var(--surface-soft);
+}
+
+.hero-action-icon {
+    display: grid;
+
+    place-items: center;
+
+    width: 46px;
+    height: 46px;
+
+    border-radius: 14px;
+
+    background: var(--accent-soft);
+
+    color: var(--accent);
+
+    font-size: 20px;
+}
+
+.hero-action-content {
+    display: flex;
+
+    min-width: 0;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.hero-action-content strong {
+    font-size: 14px;
+    font-weight: 750;
+}
+
+.hero-action-content small {
+    color: var(--text-secondary);
+
+    font-size: 11px;
+
+    line-height: 1.45;
+}
+
+.hero-action-arrow {
+    color: var(--accent);
+
+    font-size: 22px;
+
+    transition: transform var(--transition-fast);
+}
+
+.hero-action:hover .hero-action-arrow {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   6. SUPPORT STATUS
+   ========================================================= */
+
+.support-status {
+    margin-bottom: 35px;
+
+    padding: 22px 24px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.support-status-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.support-status-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+.status-icon {
+    display: grid;
+
+    flex: 0 0 auto;
+
+    place-items: center;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 12px;
+
+    background: var(--accent-soft);
+
+    color: var(--accent);
+
+    font-size: 17px;
+}
+
+.support-status-title h2 {
+    margin: 5px 0 0;
+
+    font-size: 17px;
+
+    letter-spacing: -0.02em;
+}
+
+.support-status-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 7px 11px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 999px;
+
+    background: var(--surface-soft);
+
+    color: var(--text-secondary);
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.support-status-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 0;
+
+    margin-top: 18px;
+}
+
+.support-status-item {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 11px;
+
+    min-width: 0;
+
+    padding: 3px 20px;
+
+    border-right: 1px solid var(--border);
+}
+
+.support-status-item:first-child {
+    padding-left: 0;
+}
+
+.support-status-item:last-child {
+    padding-right: 0;
+
+    border-right: 0;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    flex: 0 0 auto;
+
+    margin-top: 5px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.status-dot.muted {
+    background: var(--muted);
+
+    box-shadow: none;
+}
+
+.support-status-item strong {
+    display: block;
+
+    font-size: 12px;
+}
+
+.support-status-item p {
+    margin: 4px 0 0;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.45;
+}
+
+
+/* =========================================================
+   7. MAIN DASHBOARD GRID
+   ========================================================= */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.8fr);
+
+    align-items: start;
+
+    gap: 25px;
+}
+
+.dashboard-main,
+.dashboard-sidebar {
+    min-width: 0;
+}
+
+.dashboard-sidebar {
+    display: grid;
+
+    gap: 16px;
+}
+
+
+/* =========================================================
+   8. SECTION HEADING
+   ========================================================= */
+
+.dashboard-section {
+    min-width: 0;
+}
+
+.section-heading {
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 15px;
+}
+
+.section-heading h2 {
+    margin: 7px 0 0;
+
+    font-size: 22px;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.035em;
+}
+
+
+/* =========================================================
+   9. QUICK ACTION GRID
+   ========================================================= */
+
+.action-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+.action-card {
+    display: grid;
+
+    grid-template-columns: 42px minmax(0, 1fr) auto;
+
+    align-items: center;
+
+    gap: 13px;
+
+    min-height: 92px;
+
+    padding: 17px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    background: var(--surface);
+
+    color: inherit;
+
+    text-decoration: none;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform var(--transition-fast),
+        border-color var(--transition-fast),
+        background var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.action-card:hover {
+    transform: translateY(-2px);
+
+    border-color: var(--accent);
+
+    background: var(--surface-soft);
+
+    box-shadow: var(--shadow-md);
+}
+
+.action-card-primary {
+    border-color: rgba(99, 91, 255, 0.28);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent-soft),
+            var(--surface)
+        );
+}
+
+.action-icon {
+    display: grid;
+
+    place-items: center;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    background: var(--surface-soft);
+
+    color: var(--accent);
+
+    font-size: 16px;
+}
+
+.action-card-primary .action-icon {
+    background: var(--accent);
+
+    color: white;
+}
+
+.action-content {
+    display: flex;
+
+    min-width: 0;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.action-content strong {
+    overflow: hidden;
+
+    font-size: 13px;
+
+    font-weight: 750;
+
+    text-overflow: ellipsis;
+}
+
+.action-content small {
+    color: var(--text-secondary);
+
+    font-size: 10px;
+
+    line-height: 1.45;
+}
+
+.action-arrow {
+    color: var(--muted);
+
+    font-size: 18px;
+
+    transition:
+        color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.action-card:hover .action-arrow {
+    color: var(--accent);
+
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   10. EMOTIONAL CONTEXT
+   ========================================================= */
+
+.context-card {
+    display: grid;
+
+    grid-template-columns: 48px minmax(0, 1fr);
+
+    align-items: start;
+
+    gap: 15px;
+
+    margin-top: 22px;
+
+    padding: 21px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    background: var(--surface-soft);
+}
+
+.context-icon {
+    display: grid;
+
+    place-items: center;
+
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    background: var(--surface);
+
+    color: var(--accent);
+
+    font-size: 19px;
+}
+
+.context-content h2 {
+    margin: 7px 0 0;
+
+    font-size: 15px;
+
+    line-height: 1.4;
+
+    letter-spacing: -0.015em;
+}
+
+.context-content p {
+    max-width: 620px;
+
+    margin: 7px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   11. SIDEBAR CARDS
+   ========================================================= */
+
+.dashboard-card {
+    padding: 21px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform var(--transition-fast),
+        border-color var(--transition-fast);
+}
+
+.dashboard-card:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(99, 91, 255, 0.25);
+}
+
+.card-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+}
+
+.card-icon {
+    display: grid;
+
+    place-items: center;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 11px;
+
+    background: var(--accent-soft);
+
+    color: var(--accent);
+
+    font-size: 15px;
+}
+
+.dashboard-card .eyebrow {
+    margin-bottom: 11px;
+}
+
+.dashboard-card h2 {
+    margin: 0;
+
+    font-size: 17px;
+
+    line-height: 1.25;
+
+    letter-spacing: -0.025em;
+}
+
+.dashboard-card p {
+    margin: 9px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+
+    line-height: 1.65;
+}
+
+.text-link,
+.secondary-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 16px;
+
+    color: var(--accent);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+.text-link:hover,
+.secondary-link:hover {
+    text-decoration: underline;
+}
+
+.text-link span,
+.secondary-link span {
+    transition: transform var(--transition-fast);
+}
+
+.text-link:hover span,
+.secondary-link:hover span {
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   12. PRIVACY SUMMARY
+   ========================================================= */
+
+.privacy-summary {
+    background:
+        linear-gradient(
+            145deg,
+            var(--accent-soft),
+            var(--surface) 60%
+        );
+}
+
+
+/* =========================================================
+   13. BOTTOM PRIVACY NOTE
+   ========================================================= */
+
+.dashboard-note {
+    display: grid;
+
+    grid-template-columns: 38px minmax(0, 1fr) auto;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-top: 25px;
+
+    padding: 16px 18px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    background: var(--surface-soft);
+}
+
+.dashboard-note-icon {
+    display: grid;
+
+    place-items: center;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 11px;
+
+    background: var(--surface);
+
+    color: var(--accent);
+}
+
+.dashboard-note strong {
+    display: block;
+
+    font-size: 11px;
+}
+
+.dashboard-note p {
+    margin: 3px 0 0;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+.dashboard-note a {
+    color: var(--accent);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   14. LEGACY / GENERAL PAGE HERO
+   ========================================================= */
+
+.page-hero {
+    max-width: 850px;
+
+    margin: 0 auto 35px;
+}
+
+.page-hero h1 {
+    margin: 9px 0 0;
+
+    font-size: clamp(38px, 5vw, 58px);
+
+    line-height: 1.05;
+
+    letter-spacing: -0.05em;
+}
+
+.page-hero h1 span {
+    display: block;
+
+    color: var(--accent);
+}
+
+.page-hero p {
+    max-width: 680px;
+
+    margin: 18px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   15. CHAT PAGE
+   ========================================================= */
+
+.chat-page {
+    max-width: 1000px;
+
+    margin: auto;
+}
+
+.chat-page-title {
+    margin-bottom: 25px;
+}
+
+.chat-page-title h1 {
+    margin: 0;
+
+    font-size: clamp(32px, 5vw, 48px);
+
+    letter-spacing: -0.04em;
+}
+
+.chat-page-title p {
+    max-width: 650px;
+
+    margin: 10px 0 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+.chat-toolbar {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 15px;
+}
+
+.chat-toolbar-info {
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   16. MEMORY PAGE
+   ========================================================= */
+
+.memory-page {
+    max-width: 850px;
+
+    margin: auto;
+}
+
+.memory-intro {
+    max-width: 650px;
+
+    color: var(--text-secondary);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+.memory-section {
+    margin-top: 25px;
+}
+
+.memory-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+
+/* =========================================================
+   17. PRIVACY PAGE
+   ========================================================= */
+
+.privacy-page {
+    max-width: 850px;
+
+    margin: auto;
+}
+
+.privacy-intro {
+    max-width: 700px;
+
+    color: var(--text-secondary);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+.privacy-summary {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.privacy-summary-card {
+    padding: 18px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    background: var(--surface);
+}
+
+.privacy-summary-card strong {
+    display: block;
+
+    font-size: 14px;
+}
+
+.privacy-summary-card span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   18. SAFETY PAGE
+   ========================================================= */
+
+.safety-page {
+    max-width: 850px;
+
+    margin: auto;
+}
+
+.safety-options {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+
+    margin-top: 20px;
+}
+
+.safety-option {
+    padding: 20px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    background: var(--surface);
+
+    transition:
+        transform var(--transition-fast),
+        border-color var(--transition-fast);
+}
+
+.safety-option:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(99, 91, 255, 0.3);
+}
+
+.safety-option h3 {
+    margin: 0;
+
+    font-size: 15px;
+}
+
+.safety-option p {
+    margin: 7px 0 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   19. SETTINGS PAGE
+   ========================================================= */
+
+.settings-page {
+    max-width: 850px;
+
+    margin: auto;
+}
+
+.settings-section {
+    margin-top: 25px;
+}
+
+.settings-section-title {
+    margin-bottom: 10px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   20. PROFILE / ACCOUNT
+   ========================================================= */
+
+.account-section {
+    margin-bottom: 25px;
+}
+
+.account-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+
+/* =========================================================
+   21. INFORMATION BLOCK
+   ========================================================= */
+
+.info-block {
+    padding: 18px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    background: var(--surface-soft);
+}
+
+.info-block h3 {
+    margin: 0;
+
+    font-size: 14px;
+}
+
+.info-block p {
+    margin: 7px 0 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   22. DATA LIST / LOG
+   ========================================================= */
+
+.data-list {
+    display: grid;
+
+    gap: 1px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    background: var(--border);
+}
+
+.data-row {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 14px 16px;
+
+    background: var(--surface);
+}
+
+.data-row strong {
+    font-size: 12px;
+}
+
+.data-row span {
+    color: var(--muted);
+
+    font-size: 11px;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   23. ALERT
+   ========================================================= */
+
+.page-alert {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    padding: 15px;
+
+    margin-top: 18px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    background: var(--surface-soft);
+}
+
+.page-alert-icon {
+    flex: 0 0 auto;
+
+    color: var(--accent);
+
+    font-size: 18px;
+}
+
+.page-alert strong {
+    display: block;
+
+    font-size: 13px;
+}
+
+.page-alert p {
+    margin: 4px 0 0;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   24. RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .dashboard-hero {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .hero-action {
+        max-width: 520px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-sidebar {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .privacy-summary {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   25. RESPONSIVE — SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .container,
+    .page-container,
+    .dashboard-container {
+        width: min(100% - 30px, 700px);
+    }
+
+    .dashboard-container {
+        padding-top: 28px;
+    }
+
+    .dashboard-hero {
+        padding-top: 20px;
+    }
+
+    .dashboard-hero h1 {
+        font-size: clamp(38px, 8vw, 54px);
+    }
+
+    .support-status-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .support-status-item,
+    .support-status-item:first-child,
+    .support-status-item:last-child {
+        padding: 13px 0;
+
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .support-status-item:last-child {
+        padding-bottom: 0;
+
+        border-bottom: 0;
+    }
+
+    .dashboard-sidebar {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   26. RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .container,
+    .page-container,
+    .dashboard-container {
+        width: calc(100% - 24px);
+    }
+
+    .dashboard-container {
+        padding-top: 20px;
+        padding-bottom: 35px;
+    }
+
+    .page-container {
+        padding-top: 32px;
+        padding-bottom: 45px;
+    }
+
+
+    /* Hero */
+
+    .dashboard-hero {
+        gap: 22px;
+
+        padding: 15px 0 25px;
+    }
+
+    .dashboard-hero h1 {
+        font-size: 39px;
+
+        line-height: 1;
+    }
+
+    .dashboard-hero h1 span {
+        margin-top: 6px;
+    }
+
+    .hero-description {
+        margin-top: 15px;
+
+        font-size: 13px;
+
+        line-height: 1.65;
+    }
+
+
+    /* Hero action */
+
+    .hero-action {
+        grid-template-columns: 42px minmax(0, 1fr) auto;
+
+        min-height: 82px;
+
+        padding: 15px;
+
+        gap: 11px;
+    }
+
+    .hero-action-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+
+    /* Support */
+
+    .support-status {
+        padding: 18px;
+
+        margin-bottom: 25px;
+    }
+
+    .support-status-header {
+        align-items: flex-start;
+    }
+
+    .support-status-badge {
+        display: none;
+    }
+
+
+    /* Section */
+
+    .section-heading {
+        margin-bottom: 12px;
+    }
+
+    .section-heading h2 {
+        font-size: 19px;
+    }
+
+
+    /* Action cards */
+
+    .action-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .action-card {
+        min-height: 80px;
+
+        padding: 14px;
+    }
+
+
+    /* Context */
+
+    .context-card {
+        grid-template-columns: 40px minmax(0, 1fr);
+
+        padding: 17px;
+
+        gap: 12px;
+    }
+
+    .context-icon {
+        width: 40px;
+        height: 40px;
+
+        border-radius: 11px;
+    }
+
+
+    /* Sidebar */
+
+    .dashboard-sidebar {
+        gap: 12px;
+    }
+
+    .dashboard-card {
+        padding: 18px;
+    }
+
+
+    /* Bottom note */
+
+    .dashboard-note {
+        grid-template-columns: 34px minmax(0, 1fr);
+
+        padding: 14px;
+    }
+
+    .dashboard-note-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .dashboard-note a {
+        grid-column: 2;
+
+        margin-top: 4px;
+    }
+
+
+    /* General pages */
+
+    .page-title {
+        margin-bottom: 28px;
+    }
+
+    .page-title h1 {
+        font-size: 38px;
+    }
+
+    .page-title p {
+        font-size: 13px;
+    }
+
+    .page-hero h1 {
+        font-size: 38px;
+    }
+
+    .page-hero p {
+        font-size: 14px;
+    }
+
+
+    /* Chat */
+
+    .chat-toolbar {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    /* Safety */
+
+    .safety-options {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Account */
+
+    .account-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .account-actions button,
+    .account-actions a {
+        width: 100%;
+    }
+
+
+    /* Data */
+
+    .data-row {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 4px;
+    }
+
+    .data-row span {
+        text-align: left;
+    }
+
+}
+
+
+/* =========================================================
+   27. VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .dashboard-hero h1 {
+        font-size: 35px;
+    }
+
+    .hero-action {
+        grid-template-columns: 38px minmax(0, 1fr) 16px;
+    }
+
+    .hero-action-icon {
+        width: 38px;
+        height: 38px;
+
+        border-radius: 10px;
+    }
+
+    .hero-action-content strong {
+        font-size: 12px;
+    }
+
+    .hero-action-content small {
+        font-size: 9px;
+    }
+
+    .action-card {
+        grid-template-columns: 38px minmax(0, 1fr) 15px;
+    }
+
+    .action-icon {
+        width: 38px;
+        height: 38px;
+
+        border-radius: 10px;
+    }
+
+}
+
+
+/* =========================================================
+   28. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-action,
+    .action-card,
+    .dashboard-card,
+    .hero-action-arrow,
+    .action-arrow,
+    .text-link span,
+    .secondary-link span {
+        transition: none;
+    }
+
+}
+```

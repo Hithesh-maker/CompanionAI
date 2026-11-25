@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Manage your CompanionAI account, appearance, privacy, and preferences."
+    >
+
+    <title>Settings — CompanionAI</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+</head>
+
+<body data-auth-required="true">
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+        <div class="header-inner">
+
+            <a href="home.html" class="brand" aria-label="CompanionAI Home">
+                <span class="brand-icon" aria-hidden="true">✦</span>
+                <span>CompanionAI</span>
+            </a>
+
+            <nav class="nav" aria-label="Main navigation">
+
+                <a href="home.html">
+                    Home
+                </a>
+
+                <a href="chat.html">
+                    Chat
+                </a>
+
+                <a href="memory.html">
+                    Memory
+                </a>
+
+                <a href="privacy.html">
+                    Privacy
+                </a>
+
+                <a href="safety.html">
+                    Safety
+                </a>
+
+                <a
+                    href="settings.html"
+                    class="active"
+                    aria-current="page"
+                >
+                    Settings
+                </a>
+
+                <button
+                    id="themeToggle"
+                    class="icon-button"
+                    type="button"
+                    aria-label="Toggle theme"
+                    title="Toggle theme"
+                >
+                    ◐
+                </button>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="page-container">
+
+        <!-- Page introduction -->
+
+        <section class="page-title">
+
+            <span class="eyebrow">
+                SETTINGS
+            </span>
+
+            <h1>
+                Your experience.
+            </h1>
+
+            <p>
+                Manage your account, appearance, and
+                CompanionAI preferences from one place.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             PROFILE
+        ========================== -->
+
+        <section class="profile-header">
+
+            <div
+                class="profile-avatar"
+                aria-hidden="true"
+            >
+                ✦
+            </div>
+
+            <div class="profile-info">
+
+                <span class="eyebrow">
+                    ACCOUNT
+                </span>
+
+                <h2 id="userName">
+                    User
+                </h2>
+
+                <p id="userEmail">
+                    Loading account information...
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             APPEARANCE
+        ========================== -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        PERSONALIZATION
+                    </span>
+
+                    <h2>
+                        Appearance
+                    </h2>
+
+                    <p>
+                        Choose how CompanionAI looks on your device.
+                    </p>
+
+                </div>
+
+                <div
+                    class="panel-icon"
+                    aria-hidden="true"
+                >
+                    ◐
+                </div>
+
+            </div>
+
+
+            <div class="settings-list">
+
+                <div class="setting-row">
+
+                    <div class="setting-info">
+
+                        <strong>
+                            Dark mode
+                        </strong>
+
+                        <span>
+                            Use a darker interface for a calmer,
+                            low-light experience.
+                        </span>
+
+                    </div>
+
+                    <label
+                        class="toggle"
+                        for="settingsThemeToggle"
+                    >
+
+                        <input
+                            id="settingsThemeToggle"
+                            type="checkbox"
+                            role="switch"
+                            aria-label="Enable dark mode"
+                        >
+
+                        <span
+                            class="toggle-slider"
+                            aria-hidden="true"
+                        ></span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ACCOUNT
+        ========================== -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        ACCOUNT
+                    </span>
+
+                    <h2>
+                        Account controls
+                    </h2>
+
+                    <p>
+                        Manage your current CompanionAI session.
+                    </p>
+
+                </div>
+
+                <div
+                    class="panel-icon"
+                    aria-hidden="true"
+                >
+                    ◇
+                </div>
+
+            </div>
+
+
+            <div class="settings-action">
+
+                <div>
+
+                    <strong>
+                        Sign out
+                    </strong>
+
+                    <p>
+                        End your current CompanionAI session
+                        on this device.
+                    </p>
+
+                </div>
+
+                <button
+                    id="logoutButton"
+                    class="danger-button"
+                    type="button"
+                >
+                    Log out
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PRIVACY & SAFETY
+        ========================== -->
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        CONTROL CENTER
+                    </span>
+
+                    <h2>
+                        Privacy & safety
+                    </h2>
+
+                    <p>
+                        Review the controls that govern your
+                        CompanionAI experience.
+                    </p>
+
+                </div>
+
+                <div
+                    class="panel-icon"
+                    aria-hidden="true"
+                >
+                    ♡
+                </div>
+
+            </div>
+
+
+            <div class="settings-links">
+
+                <a
+                    href="privacy.html"
+                    class="settings-link"
+                >
+
+                    <span
+                        class="settings-link-icon"
+                        aria-hidden="true"
+                    >
+                        ◌
+                    </span>
+
+                    <span class="settings-link-content">
+
+                        <strong>
+                            Privacy controls
+                        </strong>
+
+                        <small>
+                            Manage sensors, external AI,
+                            and privacy preferences.
+                        </small>
+
+                    </span>
+
+                    <span
+                        class="settings-link-arrow"
+                        aria-hidden="true"
+                    >
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="safety.html"
+                    class="settings-link"
+                >
+
+                    <span
+                        class="settings-link-icon"
+                        aria-hidden="true"
+                    >
+                        ♡
+                    </span>
+
+                    <span class="settings-link-content">
+
+                        <strong>
+                            Safety support
+                        </strong>
+
+                        <small>
+                            Review CompanionAI's safety
+                            and support options.
+                        </small>
+
+                    </span>
+
+                    <span
+                        class="settings-link-arrow"
+                        aria-hidden="true"
+                    >
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="memory.html"
+                    class="settings-link"
+                >
+
+                    <span
+                        class="settings-link-icon"
+                        aria-hidden="true"
+                    >
+                        ◇
+                    </span>
+
+                    <span class="settings-link-content">
+
+                        <strong>
+                            Memory
+                        </strong>
+
+                        <small>
+                            Review and control what
+                            CompanionAI remembers.
+                        </small>
+
+                    </span>
+
+                    <span
+                        class="settings-link-arrow"
+                        aria-hidden="true"
+                    >
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section class="about-card">
+
+            <div
+                class="about-icon"
+                aria-hidden="true"
+            >
+                ✦
+            </div>
+
+            <div>
+
+                <span class="eyebrow">
+                    ABOUT COMPANIONAI
+                </span>
+
+                <h3>
+                    Private. Supportive. User-controlled.
+                </h3>
+
+                <p>
+                    CompanionAI is a student project exploring
+                    privacy-first supportive technology.
+                    You remain in control of your data,
+                    permissions, and memories.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+                <span aria-hidden="true">✦</span>
+                CompanionAI
+            </div>
+
+            <p>
+                A student project focused on private,
+                supportive technology.
+            </p>
+
+            <p class="footer-disclaimer">
+                CompanionAI provides supportive conversation,
+                not medical or clinical advice.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         SCRIPTS
+    ========================== -->
+
+    <script src="../js/app.js"></script>
+    <script src="../js/settings.js"></script>
+
+</body>
+
+</html>
